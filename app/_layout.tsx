@@ -1,11 +1,13 @@
-import React from 'react';
-import { ThemeProvider } from './../context/ThemeContext';
+import { FC } from 'react';
 import { Stack } from 'expo-router';
+import { ThemeProvider } from '../context/ThemeContext';
 
-export default function RootLayout() {
+const RootLayout: FC = () => {
   return (
     <ThemeProvider>
       <Stack screenOptions={{ headerShown: false }} />
     </ThemeProvider>
   );
 }
+
+export default RootLayout
