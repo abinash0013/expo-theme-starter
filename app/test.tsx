@@ -4,7 +4,8 @@ import { useTheme } from '../context/ThemeContext';
 
 import Dropdown from '@/components/dropdown/Dropdown';
 import InputTypeText from '@/components/inputType/InputTypeText';
-import Modal from '@/components/modal/Modal';
+import Modal from '@/components/modal/Modal';  
+import ImagePickerComponent from '@/components/imagePicker/ProfileImageBackup';
 
 interface Theme {
   backgroundColor: string;
@@ -23,15 +24,24 @@ export default function AnyComponent() {
   const [selectedCountry, setSelectedCountry] = useState<string>(''); 
   const [countryError, setCountryError] = useState<string | undefined>(undefined);
   const [modalVisible, setModalVisible] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
+  const handleImagePicked = (uri: string) => {
+    setSelectedImage(uri);
+  };
 
   const handleCountryChange = (value: string) => {
     setSelectedCountry(value);
     setCountryError(undefined);
   };
 
+  const handleImageSelected = (uri: string) => {
+    console.log('Selected Image URI:', uri);
+  };
+
   return (
     <View style={[styles.container, { backgroundColor: theme.backgroundColor }]}>
-      <InputTypeText
+      {/* <InputTypeText
         label="Name"
         value={name}
         onChangeText={setName}
@@ -78,15 +88,19 @@ export default function AnyComponent() {
         selectedValue={selectedCountry}
         onValueChange={handleCountryChange}
         error={countryError}
-      />
+      /> */}
       <Button title="Open Modal" onPress={() => setModalVisible(true)} />
       <Modal
         visible={modalVisible}
         onClose={() => setModalVisible(false)}
         title="My Modal"
       >
-        <Text>This is the modal content</Text> 
+        <Text style={{color: theme.textColor}}>This is the modal content</Text> 
       </Modal>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text>Select an Image:</Text>
+      <ImagePickerComponent onImagePicked={handleImagePicked} />
+    </View>
     </View>
   );
 }
@@ -95,7 +109,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // height: 600,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     padding: 10,
   },
   parallelInputsContainer: {
