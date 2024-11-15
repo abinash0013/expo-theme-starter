@@ -46,7 +46,9 @@ const ImagePickerComponent: React.FC<ImagePickerComponentProps> = ({ onImagePick
         onPress={pickImageFromCamera}
       >
         <Image 
-          source={{ uri: imageUri }}
+          // source={{ uri: imageUri }}
+          // source={{ uri: imageUri ?? 'https://www.w3schools.com/w3images/avatar2.png' }} 
+          source={{ uri: imageUri || 'https://www.w3schools.com/w3images/avatar2.png' }} 
           style={styles.image}
         />
           <Ionicons name="camera" size={25} style={styles.cameraIcon} />

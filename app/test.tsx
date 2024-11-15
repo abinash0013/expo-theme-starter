@@ -6,6 +6,7 @@ import Dropdown from '@/components/dropdown/Dropdown';
 import InputTypeText from '@/components/inputType/InputTypeText';
 import Modal from '@/components/modal/Modal';  
 import ImagePickerComponent from '@/components/imagePicker/ProfileImageBackup';
+import MultiSelectDropdown from '@/components/dropdown/MultiSelectDropdown';
 
 interface Theme {
   backgroundColor: string;
@@ -25,6 +26,7 @@ export default function AnyComponent() {
   const [countryError, setCountryError] = useState<string | undefined>(undefined);
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
 
   const handleImagePicked = (uri: string) => {
     setSelectedImage(uri);
@@ -89,6 +91,14 @@ export default function AnyComponent() {
         onValueChange={handleCountryChange}
         error={countryError}
       /> */}
+      <MultiSelectDropdown
+        label="Choose Options"
+        // options={options}
+        options={['Option 1', 'Option 2', 'Option 3', 'Option 4']}
+        selectedValues={selectedValues}
+        onValueChange={setSelectedValues}
+        placeholder="Select options"
+      />
       <Button title="Open Modal" onPress={() => setModalVisible(true)} />
       <Modal
         visible={modalVisible}
