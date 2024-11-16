@@ -4,6 +4,7 @@ import { ThemeProvider, useTheme } from './../context/ThemeContext';
 
 import PrimaryButton from '@/components/button/PrimaryButton';
 import SecondaryButton from '@/components/button/SecondaryButton';
+import ImageViewer from '@/components/ImageViewer/ImageViewer';
 
 const MainScreen: React.FC = () => {
   const theme = useTheme();
@@ -40,6 +41,11 @@ const MainScreen: React.FC = () => {
         buttonStyle={{ backgroundColor: 'transparent', borderColor:theme.textColor, borderWidth:1 }}
         textStyle={{ color: theme.textColor}}
       /> 
+      <ImageViewer
+        imageUrl="https://instructor-academy.onlinecoursehost.com/content/images/size/w2000/2023/05/1-How-to-Create-an-Online-Course-Thumbnail.jpg"
+        thumbnailUrl="https://instructor-academy.onlinecoursehost.com/content/images/size/w2000/2023/05/1-How-to-Create-an-Online-Course-Thumbnail.jpg"
+        // onClose={() => console.log('ImageViewer closed')}
+      />
     </View>
   );
 };
