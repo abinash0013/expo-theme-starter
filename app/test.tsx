@@ -110,6 +110,8 @@ export default function AnyComponent() {
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Text>Select an Image:</Text>
       <ImagePickerComponent onImagePicked={handleImagePicked} />
+
+      
     </View>
     </View>
   );

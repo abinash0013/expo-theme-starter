@@ -11,7 +11,8 @@ const MainScreen: React.FC = () => {
   const router = useRouter();
 
   const handleRouter = () => {
-    router.push("/test" as Href);
+    // router.push("/test" as Href);
+    router.push("/video" as Href);
   };
  
   const handlePrimaryPress = () => {
@@ -44,7 +45,6 @@ const MainScreen: React.FC = () => {
       <ImageViewer
         imageUrl="https://instructor-academy.onlinecoursehost.com/content/images/size/w2000/2023/05/1-How-to-Create-an-Online-Course-Thumbnail.jpg"
         thumbnailUrl="https://instructor-academy.onlinecoursehost.com/content/images/size/w2000/2023/05/1-How-to-Create-an-Online-Course-Thumbnail.jpg"
-        // onClose={() => console.log('ImageViewer closed')}
       />
     </View>
   );
